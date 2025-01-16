@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code with Amul</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+.container {
+  text-align: center;
+}
+#fortune-cookie {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 0.25rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#fortune-cookie:hover {
+  transform: scale(1.1);
+}
+#fortune {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff69b4;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+    </style>
+<div class="container">
+  <h1>Click the Fortune Cookie!</h1>
+  <img id="fortune-cookie" src="https://as1.ftcdn.net/v2/jpg/02/64/62/86/1000_F_264628619_Wk8sFeDsz4tVwA52RbNtVf1ag3cuYhWu.jpg" alt="Fortune Cookie">
+  <p id="fortune"></p>
+</div>
+
+<script>
+  const fortuneCookie = document.getElementById("fortune-cookie");
+const fortuneText = document.getElementById("fortune");
+const fortunes = [
+  "Your smile brightens my day!",
+  "You're the CSS to my HTML!",
+  "You've stolen the `<heart>` tag from my markup!",
+  "You're the semicolon to my JavaScript!",
+  "We're a perfect pair, like curly braces {}!",
+  "You make my heart skip a beat... and my code run smoothly!",
+  "You're the one I've been searching for... no 404 errors here!",
+  "Together, we could code something beautiful!",
+  "You're the algorithm to my heart!",
+  "You had me at 'Hello World'!"
+];
+
+fortuneCookie.addEventListener("click", () => {
+  const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+  fortuneText.textContent = randomFortune;
+  fortuneText.style.opacity = 1;
+
+  fortuneCookie.style.transform = "scale(0.9)";
+  setTimeout(() => {
+    fortuneCookie.style.transform = "scale(1)";
+  }, 150);
+});
+
+</script>
+</body>
+</html>
